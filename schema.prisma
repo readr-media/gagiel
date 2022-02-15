@@ -144,7 +144,6 @@ model Pick {
   paywall                      Boolean             @default(false)
   is_active                    Boolean             @default(true)
   from_PicksinCollection_story PicksinCollection[] @relation("PicksinCollection_story")
-  from_Member_pick             Member[]            @relation("Member_pick")
 
   @@index([memberId])
   @@index([storyId])
@@ -161,7 +160,7 @@ model Member {
   email                            String              @default("")
   is_active                        Boolean             @default(true)
   verified                         Boolean             @default(false)
-  pick                             Pick[]              @relation("Member_pick")
+  pick                             Pick[]              @relation("Pick_member")
   comment                          Comment[]           @relation("Member_comment")
   member_like                      Comment[]           @relation("Comment_like")
   follower                         Member[]            @relation("Member_follower")
@@ -175,7 +174,6 @@ model Member {
   from_CollectionMember_updated_by CollectionMember[]  @relation("CollectionMember_updated_by")
   from_PicksinCollection_creator   PicksinCollection[] @relation("PicksinCollection_creator")
   from_Story_author                Story[]             @relation("Story_author")
-  from_Pick_member                 Pick[]              @relation("Pick_member")
   from_Comment_member              Comment[]           @relation("Comment_member")
 }
 

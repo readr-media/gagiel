@@ -10,7 +10,7 @@ import {
 
 export const pick = list ({
     fields: {
-      member: relationship({ ref: 'Member', many: false }),
+      member: relationship({ ref: 'Member.pick', many: false }),
 	  objective: select({
 		label: '類型',
 	 	datatype: 'enum',

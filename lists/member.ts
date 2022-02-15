@@ -32,7 +32,7 @@ export const member = list ({
         defaultValue: false,
       }),
 	  pick: relationship({
-	    ref: 'Pick',
+	    ref: 'Pick.member',
 		many: true,
 	  }),
 	  comment: relationship({
