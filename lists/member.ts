@@ -18,9 +18,17 @@ export const member = list ({
           isUnique: true,
 		},
       }),
+      customId: text({
+        label: 'customId',
+	    validation: {
+          isRequired: true,
+          isUnique: true,
+		},
+      }),
       name: text({ validation: { isRequired: true, isUnique: true } }),
       nickname: text({ validation: { isRequired: true } }),
       avatar: text({ validation: { isRequired: false } }),
+      intro: text({ validation: { isRequired: false } }),
       email: text({
         validation: { isRequired: false },
         isFilterable: true,

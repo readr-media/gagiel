@@ -783,9 +783,11 @@ input CommentRelateToOneForCreateInput {
 type Member {
   id: ID!
   firebaseId: String
+  customId: String
   name: String
   nickname: String
   avatar: String
+  intro: String
   email: String
   is_active: Boolean
   verified: Boolean
@@ -857,9 +859,11 @@ input MemberWhereInput {
   NOT: [MemberWhereInput!]
   id: IDFilter
   firebaseId: StringFilter
+  customId: StringFilter
   name: StringFilter
   nickname: StringFilter
   avatar: StringFilter
+  intro: StringFilter
   email: StringFilter
   is_active: BooleanFilter
   verified: BooleanFilter
@@ -900,9 +904,11 @@ input PublisherManyRelationFilter {
 input MemberOrderByInput {
   id: OrderDirection
   firebaseId: OrderDirection
+  customId: OrderDirection
   name: OrderDirection
   nickname: OrderDirection
   avatar: OrderDirection
+  intro: OrderDirection
   email: OrderDirection
   is_active: OrderDirection
   verified: OrderDirection
@@ -910,9 +916,11 @@ input MemberOrderByInput {
 
 input MemberUpdateInput {
   firebaseId: String
+  customId: String
   name: String
   nickname: String
   avatar: String
+  intro: String
   email: String
   is_active: Boolean
   verified: Boolean
@@ -961,9 +969,11 @@ input MemberUpdateArgs {
 
 input MemberCreateInput {
   firebaseId: String
+  customId: String
   name: String
   nickname: String
   avatar: String
+  intro: String
   email: String
   is_active: Boolean
   verified: Boolean

@@ -154,9 +154,11 @@ model Pick {
 model Member {
   id                               Int                 @id @default(autoincrement())
   firebaseId                       String              @default("")
+  customId                         String              @default("")
   name                             String              @default("")
   nickname                         String              @default("")
   avatar                           String              @default("")
+  intro                            String              @default("")
   email                            String              @default("")
   is_active                        Boolean             @default(true)
   verified                         Boolean             @default(false)
