@@ -91,6 +91,7 @@ model Publisher {
   summary                      String   @default("")
   logo                         String   @default("")
   description                  String   @default("")
+  customId                     String   @default("")
   lang                         String?  @default("zh-TW")
   full_content                 Boolean  @default(false)
   full_screen_ad               String?  @default("none")

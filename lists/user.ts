@@ -23,5 +23,9 @@ export const user = list ({
         initialColumns: ['name', 'posts'],
       },
     },
-
+	access: {
+	  operation: {
+	    query: ({ session, context, user, operation }) => { console.log(context.req.headers); return true; }
+	  }
+	},
 })

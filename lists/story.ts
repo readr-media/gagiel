@@ -14,8 +14,14 @@ export const story = list ({
     fields: {
       title: text({ validation: { isRequired: false } }),
       url: text({ validation: { isRequired: true } }),
-      summary: text({ validation: { isRequired: false } }),
-      content: text({ validation: { isRequired: false } }),
+      summary: text({ 
+		validation: { isRequired: false } 
+		ui: { displayMode: 'textarea' },
+	  }),
+      content: text({ 
+		validation: { isRequired: false } 
+		ui: { displayMode: 'textarea' },
+	  }),
 	  source: relationship({ ref: 'Publisher', many: false }),
 	  author: relationship({ ref: 'Member', many: false }),
 	  category: relationship({ ref: 'Category', many: false }),

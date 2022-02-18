@@ -438,6 +438,7 @@ type Publisher {
   summary: String
   logo: String
   description: String
+  customId: String
   lang: String
   full_content: Boolean
   full_screen_ad: String
@@ -458,6 +459,7 @@ input PublisherWhereInput {
   summary: StringFilter
   logo: StringFilter
   description: StringFilter
+  customId: StringFilter
   lang: StringNullableFilter
   full_content: BooleanFilter
   full_screen_ad: StringNullableFilter
@@ -476,6 +478,7 @@ input PublisherOrderByInput {
   summary: OrderDirection
   logo: OrderDirection
   description: OrderDirection
+  customId: OrderDirection
   lang: OrderDirection
   full_content: OrderDirection
   full_screen_ad: OrderDirection
@@ -488,6 +491,7 @@ input PublisherUpdateInput {
   summary: String
   logo: String
   description: String
+  customId: String
   lang: String
   full_content: Boolean
   full_screen_ad: String
@@ -505,6 +509,7 @@ input PublisherCreateInput {
   summary: String
   logo: String
   description: String
+  customId: String
   lang: String
   full_content: Boolean
   full_screen_ad: String

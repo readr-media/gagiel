@@ -17,6 +17,13 @@ export const publisher = list ({
       summary: text({ validation: { isRequired: false } }),
       logo: text({ validation: { isRequired: false } }),
       description: text({ validation: { isRequired: false } }),
+      customId: text({
+        label: 'customId',
+	    validation: {
+          isRequired: true,
+          isUnique: true,
+		},
+      }),
 	  lang: select({
 		label: '語系',
 		datatype: 'enum',
