@@ -15,11 +15,11 @@ export const story = list ({
       title: text({ validation: { isRequired: false } }),
       url: text({ validation: { isRequired: true } }),
       summary: text({ 
-		validation: { isRequired: false } 
+		validation: { isRequired: false },
 		ui: { displayMode: 'textarea' },
 	  }),
       content: text({ 
-		validation: { isRequired: false } 
+		validation: { isRequired: false }, 
 		ui: { displayMode: 'textarea' },
 	  }),
 	  source: relationship({ ref: 'Publisher', many: false }),
