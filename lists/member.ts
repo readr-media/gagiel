@@ -26,7 +26,7 @@ export const member = list ({
 		isindexed: 'unique',
       }),
       name: text({ 
-		validation: { isRequired: true } 
+		validation: { isRequired: true },
 		isindexed: 'unique',
 	  }),
       nickname: text({ validation: { isRequired: true } }),
