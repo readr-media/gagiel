@@ -15,17 +15,20 @@ export const member = list ({
         label: 'firebaseId',
 	    validation: {
           isRequired: true,
-          isUnique: true,
 		},
+		isindexed: 'unique',
       }),
       customId: text({
         label: 'customId',
 	    validation: {
           isRequired: true,
-          isUnique: true,
 		},
+		isindexed: 'unique',
       }),
-      name: text({ validation: { isRequired: true, isUnique: true } }),
+      name: text({ 
+		validation: { isRequired: true } 
+		isindexed: 'unique',
+	  }),
       nickname: text({ validation: { isRequired: true } }),
       avatar: text({ validation: { isRequired: false } }),
       intro: text({ validation: { isRequired: false } }),

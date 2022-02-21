@@ -21,8 +21,8 @@ export const publisher = list ({
         label: 'customId',
 	    validation: {
           isRequired: true,
-          isUnique: true,
 		},
+		isindexed: 'unique',
       }),
 	  lang: select({
 		label: '語系',
