@@ -24,7 +24,6 @@ export const story = list ({
 	  }),
       writer: text({ 
 		validation: { isRequired: false }, 
-		ui: { displayMode: 'textarea' },
 	  }),
 	  source: relationship({ ref: 'Publisher', many: false }),
 	  author: relationship({ ref: 'Member', many: false }),
