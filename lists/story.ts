@@ -22,6 +22,10 @@ export const story = list ({
 		validation: { isRequired: false }, 
 		ui: { displayMode: 'textarea' },
 	  }),
+      writer: text({ 
+		validation: { isRequired: false }, 
+		ui: { displayMode: 'textarea' },
+	  }),
 	  source: relationship({ ref: 'Publisher', many: false }),
 	  author: relationship({ ref: 'Member', many: false }),
 	  category: relationship({ ref: 'Category', many: false }),

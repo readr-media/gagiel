@@ -521,6 +521,7 @@ type Story {
   url: String
   summary: String
   content: String
+  writer: String
   source: Publisher
   author: Member
   category: Category
@@ -561,6 +562,7 @@ input StoryWhereInput {
   url: StringFilter
   summary: StringFilter
   content: StringFilter
+  writer: StringFilter
   source: PublisherWhereInput
   author: MemberWhereInput
   category: CategoryWhereInput
@@ -588,6 +590,7 @@ input StoryOrderByInput {
   url: OrderDirection
   summary: OrderDirection
   content: OrderDirection
+  writer: OrderDirection
   published_date: OrderDirection
   og_title: OrderDirection
   og_image: OrderDirection
@@ -603,6 +606,7 @@ input StoryUpdateInput {
   url: String
   summary: String
   content: String
+  writer: String
   source: PublisherRelateToOneForUpdateInput
   author: MemberRelateToOneForUpdateInput
   category: CategoryRelateToOneForUpdateInput
@@ -647,6 +651,7 @@ input StoryCreateInput {
   url: String
   summary: String
   content: String
+  writer: String
   source: PublisherRelateToOneForCreateInput
   author: MemberRelateToOneForCreateInput
   category: CategoryRelateToOneForCreateInput

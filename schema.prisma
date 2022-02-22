@@ -105,6 +105,7 @@ model Story {
   url            String     @default("")
   summary        String     @default("")
   content        String     @default("")
+  writer         String     @default("")
   source         Publisher? @relation("Story_source", fields: [sourceId], references: [id])
   sourceId       Int?       @map("source")
   author         Member?    @relation("Story_author", fields: [authorId], references: [id])
