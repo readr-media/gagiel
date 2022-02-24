@@ -84,19 +84,19 @@ model PicksinCollection {
 }
 
 model Publisher {
-  id                           Int      @id @default(autoincrement())
-  title                        String   @default("")
-  official_site                String   @default("")
-  rss                          String   @default("")
-  summary                      String   @default("")
-  logo                         String   @default("")
-  description                  String   @default("")
-  customId                     String   @default("")
-  lang                         String?  @default("zh-TW")
-  full_content                 Boolean  @default(false)
-  full_screen_ad               String?  @default("none")
-  from_Story_source            Story[]  @relation("Story_source")
-  from_Member_follow_publisher Member[] @relation("Member_follow_publisher")
+  id                Int      @id @default(autoincrement())
+  title             String   @default("")
+  official_site     String   @default("")
+  rss               String   @default("")
+  summary           String   @default("")
+  logo              String   @default("")
+  description       String   @default("")
+  customId          String   @default("")
+  lang              String?  @default("zh-TW")
+  full_content      Boolean  @default(false)
+  full_screen_ad    String?  @default("none")
+  follower          Member[] @relation("Member_follow_publisher")
+  from_Story_source Story[]  @relation("Story_source")
 }
 
 model Story {

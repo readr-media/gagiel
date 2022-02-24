@@ -442,6 +442,13 @@ type Publisher {
   lang: String
   full_content: Boolean
   full_screen_ad: String
+  follower(
+    where: MemberWhereInput! = {}
+    orderBy: [MemberOrderByInput!]! = []
+    take: Int
+    skip: Int! = 0
+  ): [Member!]
+  followerCount(where: MemberWhereInput! = {}): Int
 }
 
 input PublisherWhereUniqueInput {
@@ -463,11 +470,18 @@ input PublisherWhereInput {
   lang: StringNullableFilter
   full_content: BooleanFilter
   full_screen_ad: StringNullableFilter
+  follower: MemberManyRelationFilter
 }
 
 input BooleanFilter {
   equals: Boolean
   not: BooleanFilter
+}
+
+input MemberManyRelationFilter {
+  every: MemberWhereInput
+  some: MemberWhereInput
+  none: MemberWhereInput
 }
 
 input PublisherOrderByInput {
@@ -495,6 +509,14 @@ input PublisherUpdateInput {
   lang: String
   full_content: Boolean
   full_screen_ad: String
+  follower: MemberRelateToManyForUpdateInput
+}
+
+input MemberRelateToManyForUpdateInput {
+  disconnect: [MemberWhereUniqueInput!]
+  set: [MemberWhereUniqueInput!]
+  create: [MemberCreateInput!]
+  connect: [MemberWhereUniqueInput!]
 }
 
 input PublisherUpdateArgs {
@@ -513,6 +535,12 @@ input PublisherCreateInput {
   lang: String
   full_content: Boolean
   full_screen_ad: String
+  follower: MemberRelateToManyForCreateInput
+}
+
+input MemberRelateToManyForCreateInput {
+  create: [MemberCreateInput!]
+  connect: [MemberWhereUniqueInput!]
 }
 
 type Story {
@@ -887,12 +915,6 @@ input MemberWhereInput {
   follow_publisher: PublisherManyRelationFilter
 }
 
-input MemberManyRelationFilter {
-  every: MemberWhereInput
-  some: MemberWhereInput
-  none: MemberWhereInput
-}
-
 input CategoryManyRelationFilter {
   every: CategoryWhereInput
   some: CategoryWhereInput
@@ -944,13 +966,6 @@ input MemberUpdateInput {
   follow_publisher: PublisherRelateToManyForUpdateInput
 }
 
-input MemberRelateToManyForUpdateInput {
-  disconnect: [MemberWhereUniqueInput!]
-  set: [MemberWhereUniqueInput!]
-  create: [MemberCreateInput!]
-  connect: [MemberWhereUniqueInput!]
-}
-
 input CategoryRelateToManyForUpdateInput {
   disconnect: [CategoryWhereUniqueInput!]
   set: [CategoryWhereUniqueInput!]
@@ -995,11 +1010,6 @@ input MemberCreateInput {
   following_category: CategoryRelateToManyForCreateInput
   following_collection: CollectionRelateToManyForCreateInput
   follow_publisher: PublisherRelateToManyForCreateInput
-}
-
-input MemberRelateToManyForCreateInput {
-  create: [MemberCreateInput!]
-  connect: [MemberWhereUniqueInput!]
 }
 
 input CategoryRelateToManyForCreateInput {

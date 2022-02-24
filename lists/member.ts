@@ -71,7 +71,7 @@ export const member = list ({
 		many: true,
 	  }),
 	  follow_publisher: relationship({
-	    ref: 'Publisher',
+	    ref: 'Publisher.follower',
 		many: true,
 	  }),
     },

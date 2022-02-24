@@ -48,6 +48,10 @@ export const publisher = list ({
 		],
 		defaultValue: 'none',
 	  }),
+	  follower: relationship({
+	    ref: 'Member.follow_publisher',
+		many: true,
+	  }),
       //posts: relationship({ ref: 'Post.author', many: true }),
     },
     ui: {
