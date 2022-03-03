@@ -575,6 +575,10 @@ type Story {
   paywall: Boolean
   full_screen_ad: String
   is_active: Boolean
+  summaryApiData: String
+  contentApiData: String
+  actionListApiData: String
+  citationApiData: String
 }
 
 input StoryWhereUniqueInput {
@@ -604,6 +608,10 @@ input StoryWhereInput {
   paywall: BooleanFilter
   full_screen_ad: StringNullableFilter
   is_active: BooleanFilter
+  summaryApiData: StringFilter
+  contentApiData: StringFilter
+  actionListApiData: StringFilter
+  citationApiData: StringFilter
 }
 
 input PickManyRelationFilter {
@@ -627,6 +635,10 @@ input StoryOrderByInput {
   paywall: OrderDirection
   full_screen_ad: OrderDirection
   is_active: OrderDirection
+  summaryApiData: OrderDirection
+  contentApiData: OrderDirection
+  actionListApiData: OrderDirection
+  citationApiData: OrderDirection
 }
 
 input StoryUpdateInput {
@@ -648,6 +660,10 @@ input StoryUpdateInput {
   paywall: Boolean
   full_screen_ad: String
   is_active: Boolean
+  summaryApiData: String
+  contentApiData: String
+  actionListApiData: String
+  citationApiData: String
 }
 
 input PublisherRelateToOneForUpdateInput {
@@ -693,6 +709,10 @@ input StoryCreateInput {
   paywall: Boolean
   full_screen_ad: String
   is_active: Boolean
+  summaryApiData: String
+  contentApiData: String
+  actionListApiData: String
+  citationApiData: String
 }
 
 input PublisherRelateToOneForCreateInput {

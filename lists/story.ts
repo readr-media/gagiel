@@ -54,6 +54,59 @@ export const story = list ({
       is_active: checkbox({
         defaultValue: true,
       }),
+	  summaryApiData: text({
+		label: 'Summary API Data',
+		ui: {
+		  createView: {
+			fieldMode: 'hidden',
+		  },
+		  itemView: {
+			fieldMode: 'hidden',
+		  },
+		  listView: {
+			fieldMode: 'hidden',
+		  }
+		}
+	  }), 
+	  contentApiData: text({
+		ui: {
+		  createView: {
+			fieldMode: 'hidden',
+		  },
+		  itemView: {
+			fieldMode: 'hidden',
+		  },
+		  listView: {
+			fieldMode: 'hidden',
+		  }
+		}
+	  }),
+	  actionListApiData: text({
+		ui: {
+		  createView: {
+			fieldMode: 'hidden',
+		  },
+		  itemView: {
+			fieldMode: 'hidden',
+		  },
+		  listView: {
+			fieldMode: 'hidden',
+		  }
+		}
+	  }),
+	  citationApiData: text({
+		ui: {
+		  createView: {
+			fieldMode: 'hidden',
+		  },
+		  itemView: {
+			fieldMode: 'hidden',
+		  },
+		  listView: {
+			fieldMode: 'hidden',
+		  }
+		}
+	  }),
     },
     ui: {
       listView: {
