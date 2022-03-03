@@ -74,6 +74,14 @@ export const member = list ({
 	    ref: 'Publisher.follower',
 		many: true,
 	  }),
+	  invited: relationship({
+	    ref: 'InvitationCode.receive',
+		many: true,
+	  }),
+	  invited_by: relationship({
+	    ref: 'InvitationCode.send',
+		many: false,
+	  }),
     },
     ui: {
       listView: {

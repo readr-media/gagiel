@@ -32,6 +32,7 @@ import {
 //import { document } from '@keystone-6/fields-document';
 import { category } from './lists/category';
 import { tag } from './lists/tag';
+import { invitation_code } from './lists/invitation_code';
 import { collection } from './lists/collection';
 import { collection_member } from './lists/collection_member';
 import { collection_picks } from './lists/collection_picks';
@@ -54,6 +55,7 @@ export const lists: Lists = {
   // Here we define the user list.
   User: user,
   Category: category,
+  InvitationCode: invitation_code,
   Collection: collection,
   CollectionMember: collection_member,
   PicksinCollection: collection_picks,

@@ -144,6 +144,60 @@ input CategoryCreateInput {
   summary: String
 }
 
+type InvitationCode {
+  id: ID!
+  code: String
+  send: Member
+  receive: Member
+}
+
+input InvitationCodeWhereUniqueInput {
+  id: ID
+}
+
+input InvitationCodeWhereInput {
+  AND: [InvitationCodeWhereInput!]
+  OR: [InvitationCodeWhereInput!]
+  NOT: [InvitationCodeWhereInput!]
+  id: IDFilter
+  code: StringFilter
+  send: MemberWhereInput
+  receive: MemberWhereInput
+}
+
+input InvitationCodeOrderByInput {
+  id: OrderDirection
+  code: OrderDirection
+}
+
+input InvitationCodeUpdateInput {
+  code: String
+  send: MemberRelateToOneForUpdateInput
+  receive: MemberRelateToOneForUpdateInput
+}
+
+input MemberRelateToOneForUpdateInput {
+  create: MemberCreateInput
+  connect: MemberWhereUniqueInput
+  disconnect: Boolean
+}
+
+input InvitationCodeUpdateArgs {
+  where: InvitationCodeWhereUniqueInput!
+  data: InvitationCodeUpdateInput!
+}
+
+input InvitationCodeCreateInput {
+  code: String
+  send: MemberRelateToOneForCreateInput
+  receive: MemberRelateToOneForCreateInput
+}
+
+input MemberRelateToOneForCreateInput {
+  create: MemberCreateInput
+  connect: MemberWhereUniqueInput
+}
+
 type Collection {
   id: ID!
   title: String
@@ -240,12 +294,6 @@ input CommentRelateToManyForUpdateInput {
   connect: [CommentWhereUniqueInput!]
 }
 
-input MemberRelateToOneForUpdateInput {
-  create: MemberCreateInput
-  connect: MemberWhereUniqueInput
-  disconnect: Boolean
-}
-
 input CollectionUpdateArgs {
   where: CollectionWhereUniqueInput!
   data: CollectionUpdateInput!
@@ -264,11 +312,6 @@ input CollectionCreateInput {
 input CommentRelateToManyForCreateInput {
   create: [CommentCreateInput!]
   connect: [CommentWhereUniqueInput!]
-}
-
-input MemberRelateToOneForCreateInput {
-  create: MemberCreateInput
-  connect: MemberWhereUniqueInput
 }
 
 type CollectionMember {
@@ -897,6 +940,14 @@ type Member {
     skip: Int! = 0
   ): [Publisher!]
   follow_publisherCount(where: PublisherWhereInput! = {}): Int
+  invited(
+    where: InvitationCodeWhereInput! = {}
+    orderBy: [InvitationCodeOrderByInput!]! = []
+    take: Int
+    skip: Int! = 0
+  ): [InvitationCode!]
+  invitedCount(where: InvitationCodeWhereInput! = {}): Int
+  invited_by: InvitationCode
 }
 
 input MemberWhereUniqueInput {
@@ -925,6 +976,8 @@ input MemberWhereInput {
   following_category: CategoryManyRelationFilter
   following_collection: CollectionManyRelationFilter
   follow_publisher: PublisherManyRelationFilter
+  invited: InvitationCodeManyRelationFilter
+  invited_by: InvitationCodeWhereInput
 }
 
 input CategoryManyRelationFilter {
@@ -943,6 +996,12 @@ input PublisherManyRelationFilter {
   every: PublisherWhereInput
   some: PublisherWhereInput
   none: PublisherWhereInput
+}
+
+input InvitationCodeManyRelationFilter {
+  every: InvitationCodeWhereInput
+  some: InvitationCodeWhereInput
+  none: InvitationCodeWhereInput
 }
 
 input MemberOrderByInput {
@@ -976,6 +1035,8 @@ input MemberUpdateInput {
   following_category: CategoryRelateToManyForUpdateInput
   following_collection: CollectionRelateToManyForUpdateInput
   follow_publisher: PublisherRelateToManyForUpdateInput
+  invited: InvitationCodeRelateToManyForUpdateInput
+  invited_by: InvitationCodeRelateToOneForUpdateInput
 }
 
 input CategoryRelateToManyForUpdateInput {
@@ -997,6 +1058,19 @@ input PublisherRelateToManyForUpdateInput {
   set: [PublisherWhereUniqueInput!]
   create: [PublisherCreateInput!]
   connect: [PublisherWhereUniqueInput!]
+}
+
+input InvitationCodeRelateToManyForUpdateInput {
+  disconnect: [InvitationCodeWhereUniqueInput!]
+  set: [InvitationCodeWhereUniqueInput!]
+  create: [InvitationCodeCreateInput!]
+  connect: [InvitationCodeWhereUniqueInput!]
+}
+
+input InvitationCodeRelateToOneForUpdateInput {
+  create: InvitationCodeCreateInput
+  connect: InvitationCodeWhereUniqueInput
+  disconnect: Boolean
 }
 
 input MemberUpdateArgs {
@@ -1022,6 +1096,8 @@ input MemberCreateInput {
   following_category: CategoryRelateToManyForCreateInput
   following_collection: CollectionRelateToManyForCreateInput
   follow_publisher: PublisherRelateToManyForCreateInput
+  invited: InvitationCodeRelateToManyForCreateInput
+  invited_by: InvitationCodeRelateToOneForCreateInput
 }
 
 input CategoryRelateToManyForCreateInput {
@@ -1037,6 +1113,16 @@ input CollectionRelateToManyForCreateInput {
 input PublisherRelateToManyForCreateInput {
   create: [PublisherCreateInput!]
   connect: [PublisherWhereUniqueInput!]
+}
+
+input InvitationCodeRelateToManyForCreateInput {
+  create: [InvitationCodeCreateInput!]
+  connect: [InvitationCodeWhereUniqueInput!]
+}
+
+input InvitationCodeRelateToOneForCreateInput {
+  create: InvitationCodeCreateInput
+  connect: InvitationCodeWhereUniqueInput
 }
 
 type Comment {
@@ -1139,6 +1225,17 @@ type Mutation {
   updateCategories(data: [CategoryUpdateArgs!]!): [Category]
   deleteCategory(where: CategoryWhereUniqueInput!): Category
   deleteCategories(where: [CategoryWhereUniqueInput!]!): [Category]
+  createInvitationCode(data: InvitationCodeCreateInput!): InvitationCode
+  createInvitationCodes(data: [InvitationCodeCreateInput!]!): [InvitationCode]
+  updateInvitationCode(
+    where: InvitationCodeWhereUniqueInput!
+    data: InvitationCodeUpdateInput!
+  ): InvitationCode
+  updateInvitationCodes(data: [InvitationCodeUpdateArgs!]!): [InvitationCode]
+  deleteInvitationCode(where: InvitationCodeWhereUniqueInput!): InvitationCode
+  deleteInvitationCodes(
+    where: [InvitationCodeWhereUniqueInput!]!
+  ): [InvitationCode]
   createCollection(data: CollectionCreateInput!): Collection
   createCollections(data: [CollectionCreateInput!]!): [Collection]
   updateCollection(
@@ -1266,6 +1363,14 @@ type Query {
   ): [Category!]
   category(where: CategoryWhereUniqueInput!): Category
   categoriesCount(where: CategoryWhereInput! = {}): Int
+  invitationCodes(
+    where: InvitationCodeWhereInput! = {}
+    orderBy: [InvitationCodeOrderByInput!]! = []
+    take: Int
+    skip: Int! = 0
+  ): [InvitationCode!]
+  invitationCode(where: InvitationCodeWhereUniqueInput!): InvitationCode
+  invitationCodesCount(where: InvitationCodeWhereInput! = {}): Int
   collections(
     where: CollectionWhereInput! = {}
     orderBy: [CollectionOrderByInput!]! = []

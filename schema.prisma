@@ -27,6 +27,17 @@ model Category {
   from_Member_following_category Member[] @relation("Member_following_category")
 }
 
+model InvitationCode {
+  id        Int     @id @default(autoincrement())
+  code      String  @default("")
+  send      Member? @relation("InvitationCode_send", fields: [sendId], references: [id])
+  sendId    Int?    @unique @map("send")
+  receive   Member? @relation("InvitationCode_receive", fields: [receiveId], references: [id])
+  receiveId Int?    @map("receive")
+
+  @@index([receiveId])
+}
+
 model Collection {
   id                                Int                 @id @default(autoincrement())
   title                             String              @default("")
@@ -176,6 +187,8 @@ model Member {
   following_category               Category[]          @relation("Member_following_category")
   following_collection             Collection[]        @relation("Member_following_collection")
   follow_publisher                 Publisher[]         @relation("Member_follow_publisher")
+  invited                          InvitationCode[]    @relation("InvitationCode_receive")
+  invited_by                       InvitationCode?     @relation("InvitationCode_send")
   from_Collection_creator          Collection[]        @relation("Collection_creator")
   from_CollectionMember_member     CollectionMember[]  @relation("CollectionMember_member")
   from_CollectionMember_added_by   CollectionMember[]  @relation("CollectionMember_added_by")
