@@ -8,6 +8,7 @@ import {
   select,
   integer,
   checkbox,
+  json,
 } from '@keystone-6/core/fields';
 
 export const story = list ({
@@ -54,7 +55,7 @@ export const story = list ({
       is_active: checkbox({
         defaultValue: true,
       }),
-	  summaryApiData: text({
+	  summaryApiData: json({
 		label: 'Summary API Data',
 		ui: {
 		  createView: {
@@ -68,7 +69,7 @@ export const story = list ({
 		  }
 		}
 	  }), 
-	  contentApiData: text({
+	  contentApiData: json({
 		ui: {
 		  createView: {
 			fieldMode: 'hidden',
@@ -81,7 +82,7 @@ export const story = list ({
 		  }
 		}
 	  }),
-	  actionListApiData: text({
+	  actionListApiData: json({
 		ui: {
 		  createView: {
 			fieldMode: 'hidden',
@@ -94,7 +95,7 @@ export const story = list ({
 		  }
 		}
 	  }),
-	  citationApiData: text({
+	  citationApiData: json({
 		ui: {
 		  createView: {
 			fieldMode: 'hidden',

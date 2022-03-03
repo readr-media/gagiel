@@ -122,10 +122,10 @@ model Story {
   paywall           Boolean    @default(false)
   full_screen_ad    String?    @default("none")
   is_active         Boolean    @default(true)
-  summaryApiData    String     @default("")
-  contentApiData    String     @default("")
-  actionListApiData String     @default("")
-  citationApiData   String     @default("")
+  summaryApiData    Json?
+  contentApiData    Json?
+  actionListApiData Json?
+  citationApiData   Json?
 
   @@index([sourceId])
   @@index([authorId])
