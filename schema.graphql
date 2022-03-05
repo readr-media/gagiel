@@ -618,10 +618,6 @@ type Story {
   paywall: Boolean
   full_screen_ad: String
   is_active: Boolean
-  summaryApiData: JSON
-  contentApiData: JSON
-  actionListApiData: JSON
-  citationApiData: JSON
 }
 
 input StoryWhereUniqueInput {
@@ -695,10 +691,6 @@ input StoryUpdateInput {
   paywall: Boolean
   full_screen_ad: String
   is_active: Boolean
-  summaryApiData: JSON
-  contentApiData: JSON
-  actionListApiData: JSON
-  citationApiData: JSON
 }
 
 input PublisherRelateToOneForUpdateInput {
@@ -744,10 +736,6 @@ input StoryCreateInput {
   paywall: Boolean
   full_screen_ad: String
   is_active: Boolean
-  summaryApiData: JSON
-  contentApiData: JSON
-  actionListApiData: JSON
-  citationApiData: JSON
 }
 
 input PublisherRelateToOneForCreateInput {
