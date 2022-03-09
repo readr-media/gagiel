@@ -28,6 +28,9 @@ export const comment = list ({
 		defaultValue: 'public',
 	  }),
       published_date: timestamp({ validation: { isRequired: false } }),
+      is_edited: checkbox({
+        defaultValue: false,
+      }),
       is_active: checkbox({
         defaultValue: true,
       }),

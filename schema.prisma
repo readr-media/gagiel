@@ -208,6 +208,7 @@ model Comment {
   like                    Member[]     @relation("Comment_like")
   state                   String?      @default("public")
   published_date          DateTime?
+  is_edited               Boolean      @default(false)
   is_active               Boolean      @default(true)
   from_Collection_comment Collection[] @relation("Collection_comment")
   from_Pick_comment       Pick[]       @relation("Pick_comment")

@@ -1129,6 +1129,7 @@ type Comment {
   likeCount(where: MemberWhereInput! = {}): Int
   state: String
   published_date: DateTime
+  is_edited: Boolean
   is_active: Boolean
 }
 
@@ -1149,6 +1150,7 @@ input CommentWhereInput {
   like: MemberManyRelationFilter
   state: StringNullableFilter
   published_date: DateTimeNullableFilter
+  is_edited: BooleanFilter
   is_active: BooleanFilter
 }
 
@@ -1157,6 +1159,7 @@ input CommentOrderByInput {
   content: OrderDirection
   state: OrderDirection
   published_date: OrderDirection
+  is_edited: OrderDirection
   is_active: OrderDirection
 }
 
@@ -1169,6 +1172,7 @@ input CommentUpdateInput {
   like: MemberRelateToManyForUpdateInput
   state: String
   published_date: DateTime
+  is_edited: Boolean
   is_active: Boolean
 }
 
@@ -1186,6 +1190,7 @@ input CommentCreateInput {
   like: MemberRelateToManyForCreateInput
   state: String
   published_date: DateTime
+  is_edited: Boolean
   is_active: Boolean
 }
 
